@@ -1,0 +1,28 @@
+---
+
+name: URL Checker Action
+description: This action check urls
+inputs:
+  jira_login:
+    required: true
+    description: Jira login
+  jira_api_key:
+    required: true
+    description: Jira API key
+  jira_org:
+    required: true
+    description: Jira organization
+  jira_task:
+    required: true
+    description: Jira task code
+  slack_token:
+    required: true
+    description: Slack token
+
+runs:
+  using: docker
+  image: 'Dockerfile'
+
+branding:
+  icon: alert-circle
+  color: blue

@@ -1,0 +1,24 @@
+
+name: test
+
+on:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '*'
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run URL Checker
+        uses: wowvendor/release-notify-action@v1
+        with:
+          jira_login: ${{ secrets.JIRA_LOGIN }}
+          jira_api_key: ${{ secrets.JIRA_API_KEY }}
+          jira_org: ${{ secrets.JIRA_ORG }}
+          jira_task: ${{ github.base_ref }}
+          slack_token: ${{ secrets.SLACK_TOKEN }}
