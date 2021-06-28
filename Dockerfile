@@ -1,6 +1,6 @@
 FROM python:3.9-alpine
 
-RUN apk add --no-cache --virtual build-base gcc musl-dev python3-dev libffi-dev openssl-dev cargo
+RUN apk --update add --virtual build-dependencies libffi-dev openssl-dev python3-dev py-pip build-base rust cargo
 
 WORKDIR /app
 
