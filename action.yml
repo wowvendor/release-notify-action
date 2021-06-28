@@ -1,7 +1,7 @@
 ---
 
-name: URL Checker Action
-description: This action check urls
+name: Release notify
+description: This action notify about releases
 inputs:
   jira_login:
     required: true
@@ -18,6 +18,9 @@ inputs:
   slack_token:
     required: true
     description: Slack token
+  slack_channel:
+    required: true
+    description: Slack channel
 
 runs:
   using: docker

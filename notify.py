@@ -12,6 +12,7 @@ def notify():
     jira_org = os.getenv('INPUT_JIRA_ORG')
     jira_task = os.getenv('INPUT_JIRA_TASK')
     slack_token = os.getenv('INPUT_SLACK_TOKEN')
+    slack_channel = os.getenv('INPUT_SLACK_CHANNEL')
 
     slack = WebClient(token=slack_token)
 
@@ -24,7 +25,7 @@ def notify():
     jira.transition_issue(issue, 'Deploy')
 
     payload = {
-        "channel": "C01T49QL4G0",
+        "channel": slack_channel,
         "attachments": [
             {
                 "mrkdwn_in": ["text"],

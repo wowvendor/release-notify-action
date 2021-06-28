@@ -21,6 +21,9 @@ This action check urls.
 ### `slack_token`
 **Required**
 
+### `slack_channel`
+**Required**
+
 ## Example usage
 
 ```
@@ -29,6 +32,7 @@ with:
   jira_login: user
   jira_api_key: key
   jira_org: org
-  branch_name: 
+  jira_task: jira-task-id
   slack_token: slack-token
+  slack_channel: channel-id
 ```
