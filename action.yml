@@ -12,15 +12,19 @@ inputs:
   jira_org:
     required: true
     description: Jira organization
-  jira_task:
+  commit_message:
     required: true
-    description: Jira task code
+    description: Commit message
   slack_token:
     required: true
     description: Slack token
   slack_channel:
     required: true
     description: Slack channel
+  debug:
+    required: false
+    default: ''
+    description: Debug mode
 
 runs:
   using: docker
