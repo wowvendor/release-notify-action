@@ -14,13 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: mdecoleman/pr-branch-name@1.0.1
+        id: vars
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run URL Checker
         uses: wowvendor/release-notify-action@v1
         with:
           jira_login: m.pak@bpcbt.com
           jira_api_key: ${{ secrets.JIRA_API_KEY }}
           jira_org: wowvendor
-          jira_task: ${{ github.base_ref }}
+          jira_task: ${{ steps.vars.outputs.branch }}
           slack_token: ${{ secrets.SLACK_TOKEN }}
           slack_channel: C01T49QL4G0
           debug: true
