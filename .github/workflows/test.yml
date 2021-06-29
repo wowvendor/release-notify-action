@@ -18,7 +18,7 @@ jobs:
         uses: wowvendor/release-notify-action@v1
         with:
           jira_login: m.pak@bpcbt.com
-          jira_api_key: TY3Z0OyQUHLsJ2hgy7yxE12C
+          jira_api_key: ${{ secrets.JIRA_API_KEY }}
           jira_org: wowvendor
           jira_task: ${{ github.base_ref }}
           slack_token: ${{ secrets.SLACK_TOKEN }}
