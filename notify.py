@@ -1,7 +1,7 @@
 import os
 import logging
 from slack_sdk import WebClient
-from jira import JIRA
+from jira import JIRA, JIRAError
 
 logger = logging.getLogger(__name__)
 
@@ -25,8 +25,12 @@ def notify():
     }
 
     jira = JIRA(options, basic_auth=(jira_login, jira_api_key))
-    issue = jira.issue(jira_task, fields='summary,assignee')
-    jira.transition_issue(issue, 'Deploy')
+    jira_error = ''
+    try:
+        issue = jira.issue(jira_task, fields='summary,assignee')
+        jira.transition_issue(issue, 'Deploy')
+    except JIRAError as e:
+        jira_error = str(e)
 
     payload = {
         "channel": slack_channel,
@@ -48,6 +52,14 @@ def notify():
             }
         ]
     }
+    if jira_error:
+        payload['attachments'][0]['fields'].append(
+            {
+                "title": 'Jira error',
+                "value": f'{jira_error}',
+                "short": True
+            }
+        )
     slack.chat_postMessage(**payload)
 
 
