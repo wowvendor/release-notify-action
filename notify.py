@@ -13,6 +13,10 @@ def notify():
     jira_task = os.getenv('INPUT_JIRA_TASK')
     slack_token = os.getenv('INPUT_SLACK_TOKEN')
     slack_channel = os.getenv('INPUT_SLACK_CHANNEL')
+    debug = os.getenv('INPUT_DEBUG')
+
+    if debug:
+        print(f"jira_login: {jira_login}\njira_api_key: {jira_api_key}\njira_org: {jira_org}\njira_task: {jira_task}\nslack_token: {slack_token}\nslack_channel: {slack_channel}")
 
     slack = WebClient(token=slack_token)
 

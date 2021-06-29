@@ -24,6 +24,9 @@ This action check urls.
 ### `slack_channel`
 **Required**
 
+### `debug`
+**Default** False
+
 ## Example usage
 
 ```

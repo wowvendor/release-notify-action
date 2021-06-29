@@ -21,6 +21,10 @@ inputs:
   slack_channel:
     required: true
     description: Slack channel
+  debug:
+    required: false
+    default: ''
+    description: Debug mode
 
 runs:
   using: docker

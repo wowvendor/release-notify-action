@@ -22,3 +22,4 @@ jobs:
           jira_org: ${{ secrets.JIRA_ORG }}
           jira_task: ${{ github.base_ref }}
           slack_token: ${{ secrets.SLACK_TOKEN }}
+          debug: true
