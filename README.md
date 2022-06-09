@@ -15,8 +15,8 @@ This action check urls.
 ### `jira_org`
 **Required** Jira organization - `https://{{ jira_org }}.atlassian.net`
 
-### `jira_task`
-**Required** Jira task code
+### `commit_message`
+**Required** Commit message
 
 ### `slack_token`
 **Required**
@@ -35,7 +35,7 @@ with:
   jira_login: user
   jira_api_key: key
   jira_org: org
-  jira_task: jira-task-id
+  commit_message: ${{ github.event.head_commit.message }}
   slack_token: slack-token
   slack_channel: channel-id
 ```

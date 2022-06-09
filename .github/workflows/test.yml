@@ -19,7 +19,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run URL Checker
+      - name: Run release-notify-action
         uses: wowvendor/release-notify-action@v1
         with:
           jira_login: m.pak@bpcbt.com

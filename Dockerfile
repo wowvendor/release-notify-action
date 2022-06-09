@@ -1,6 +1,4 @@
-FROM python:3.9-alpine
-
-RUN apk --update add --virtual build-dependencies libffi-dev openssl-dev python3-dev py-pip build-base rust cargo
+FROM python:3.9-slim
 
 WORKDIR /app
 
@@ -10,4 +8,4 @@ RUN pip install --upgrade pip \
 
 COPY notify.py .
 
-ENTRYPOINT ["python", "/app/notify.py"]
+ENTRYPOINT ["python", "notify.py"]
