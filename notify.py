@@ -69,6 +69,8 @@ def notify():
         })
     except JIRAError as e:
         print(e)
+        print('-----')
+        print(f'{jira_login}:{jira_api_key}')
         payload['attachments'][0]['fields'].append({
             "title": "Message",
             "value": github_commit_message,
