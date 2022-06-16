@@ -19,8 +19,6 @@ def notify():
     github_sha = os.getenv('GITHUB_SHA')
     github_workflow = os.getenv('GITHUB_WORKFLOW')
 
-    jira_found_task = True
-
     payload = {
         "channel": slack_channel,
         "attachments": [
@@ -69,7 +67,8 @@ def notify():
             "value": f'https://wowvendor.atlassian.net/browse/{jira_task}',
             "short": False
         })
-    except JIRAError:
+    except JIRAError as e:
+        print(e)
         payload['attachments'][0]['fields'].append({
             "title": "Message",
             "value": github_commit_message,
